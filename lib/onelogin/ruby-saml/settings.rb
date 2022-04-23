@@ -41,7 +41,9 @@ module OneLogin
       attr_accessor :idp_attribute_names
       attr_accessor :idp_name_qualifier
       attr_accessor :valid_until
+
       # SP Data
+      attr_accessor :issuer_audience
       attr_writer   :sp_entity_id
       attr_accessor :assertion_consumer_service_url
       attr_reader   :assertion_consumer_service_binding

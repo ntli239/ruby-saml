@@ -614,7 +614,7 @@ module OneLogin
       def validate_audience
         return true if options[:skip_audience]
         return true if settings.sp_entity_id.nil? || settings.sp_entity_id.empty?
-
+        return true if settings.issuer_audience.empty? == false && audiences.include?(settings.issuer_audience)
         if audiences.empty?
           return true unless settings.security[:strict_audience_validation]
           return append_error("Invalid Audiences. The <AudienceRestriction> element contained only empty <Audience> elements. Expected audience #{settings.sp_entity_id}.")
